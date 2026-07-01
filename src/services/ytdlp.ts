@@ -7,10 +7,12 @@ const TARGET_VIDEO_HEIGHTS = [144, 240, 360, 480, 720, 1080];
 const TARGET_AUDIO_BITRATES = [128, 320];
 
 const YTDLP_PATH = process.env.YTDLP_PATH || 'yt-dlp';
+const COOKIES_FILE = process.env.COOKIES_FILE || '';
 
 function ytdlp(args: string[]): Promise<{ stdout: string; stderr: string }> {
   return new Promise((resolve, reject) => {
-    const proc = spawn(YTDLP_PATH, args);
+    const finalArgs = COOKIES_FILE ? ['--cookies', COOKIES_FILE, ...args] : args;
+    const proc = spawn(YTDLP_PATH, finalArgs);
     let stdout = '';
     let stderr = '';
     proc.stdout.on('data', (d: Buffer) => { stdout += d.toString(); });
@@ -39,6 +41,7 @@ export class YtdlpService {
   ): Promise<string> {
     return new Promise((resolve, reject) => {
       const args = this.buildDownloadArgs(url, options);
+      if (COOKIES_FILE) args.splice(0, 0, '--cookies', COOKIES_FILE);
       const proc = spawn(YTDLP_PATH, args);
       let stderr = '';
 
