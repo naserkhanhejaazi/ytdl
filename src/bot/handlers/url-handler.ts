@@ -58,10 +58,9 @@ export async function handleYoutubeUrl(ctx: Context) {
     });
   } catch (error: any) {
     await ctx.reply(
-      `${STICKERS.error} <b>Failed to fetch video information.</b>\n\n` +
+      `${STICKERS.error} Failed to fetch video information.\n\n` +
       `Please check the URL and try again.\n` +
-      `Error: ${error.message || 'Unknown error'}`,
-      { parse_mode: 'HTML' }
+      `Error: ${error.message || 'Unknown error'}`
     );
   }
 }

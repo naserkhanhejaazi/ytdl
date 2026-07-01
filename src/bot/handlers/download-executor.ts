@@ -77,10 +77,9 @@ export async function executeDownload(
     await ctx.api.editMessageText(
       chatId,
       progressMsg.message_id,
-      `${STICKERS.error} <b>Download failed.</b>\n\n` +
+      `${STICKERS.error} Download failed.\n\n` +
       `The file may exceed 50MB or be unavailable.\n` +
-      `Error: ${error.message || 'Unknown error'}`,
-      { parse_mode: 'HTML' }
+      `Error: ${error.message || 'Unknown error'}`
     );
   }
 }

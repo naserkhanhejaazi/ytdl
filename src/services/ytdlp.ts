@@ -6,7 +6,7 @@ import { MAX_FILE_SIZE } from '../utils/constants';
 const TARGET_VIDEO_HEIGHTS = [144, 240, 360, 480, 720, 1080];
 const TARGET_AUDIO_BITRATES = [128, 320];
 
-const YTDLP_PATH = path.join(__dirname, '..', '..', 'yt-dlp');
+const YTDLP_PATH = process.env.YTDLP_PATH || 'yt-dlp';
 
 function ytdlp(args: string[]): Promise<{ stdout: string; stderr: string }> {
   return new Promise((resolve, reject) => {

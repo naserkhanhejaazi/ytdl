@@ -25,7 +25,7 @@ export function formatNumber(num: number): string {
 
 export function buildVideoInfoMessage(info: VideoInfo): string {
   const desc = info.description
-    ? info.description.substring(0, MAX_DESCRIPTION_LENGTH) + (info.description.length > MAX_DESCRIPTION_LENGTH ? '...' : '')
+    ? info.description.substring(0, MAX_DESCRIPTION_LENGTH).replace(/[<>]/g, '') + (info.description.length > MAX_DESCRIPTION_LENGTH ? '...' : '')
     : 'No description';
 
   return `${STICKERS.videoInfo} <b>${escapeHtml(info.title)}</b>

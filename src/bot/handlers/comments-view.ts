@@ -37,8 +37,7 @@ export async function showComments(ctx: Context) {
     });
   } catch (err: any) {
     await ctx.reply(
-      `${STICKERS.error} Failed to load comments: ${err.message || 'Unknown error'}`,
-      { parse_mode: 'HTML' }
+      `${STICKERS.error} Failed to load comments: ${err.message || 'Unknown error'}`
     );
   }
 }
