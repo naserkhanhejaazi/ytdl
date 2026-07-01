@@ -1,0 +1,25 @@
+{
+  "name": "yt-music-video-dl-linux",
+  "version": "1.0.0",
+  "description": "Telegram YouTube Downloader Bot (Linux)",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx --no-install tsc",
+    "start": "node dist/index.js",
+    "dev": "npx --no-install ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.6.13",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.21.1",
+    "https-proxy-agent": "^9.1.0",
+    "node-fetch": "^2.7.0",
+    "undici": "^8.5.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}
